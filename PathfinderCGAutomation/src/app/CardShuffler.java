@@ -1,6 +1,7 @@
 package app;
 
 import objectModel.Card;
+import objectModel.Deck;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,40 +15,26 @@ public class CardShuffler {
     public static void main(String[] args) {
 
         // make a list of cards in a certain identifiable order
-        List<Card> cards = new ArrayList<>();
-        cards.add(new Card("a"));
-        cards.add(new Card("b"));
-        cards.add(new Card("c"));
-        cards.add(new Card("d"));
-        cards.add(new Card("e"));
+        Deck deck = new Deck();
+        deck.add(new Card("a"));
+        deck.add(new Card("b"));
+        deck.add(new Card("c"));
+        deck.add(new Card("d"));
+        deck.add(new Card("e"));
 
-        print(cards);
+        print(deck);
 
         // shuffle the cards
-        cards = shuffle(cards);
+        deck.shuffle();
 
         // print the list to show that it is shuffled
-        print(cards);
+        print(deck);
     }
 
-    public static void print(List<Card> cards) {
-        for (Card c : cards) {
+    public static void print(Deck cards) {
+        for (Card c : cards.getCards()) {
             System.out.print(c + ", ");
         }
         System.out.println();
-    }
-
-    public static List<Card> shuffle(List<Card> src) {
-        Random rand = new Random();
-
-        List<Card> shuffled = new ArrayList<>(src.size());
-
-        while (!src.isEmpty()) {
-            int srcInd = rand.nextInt(src.size());
-            Card c = src.remove(srcInd);
-            shuffled.add(c);
-        }
-
-        return shuffled;
     }
 }
