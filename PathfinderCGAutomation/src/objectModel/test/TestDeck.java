@@ -56,31 +56,30 @@ public class TestDeck {
             d0.add(c);
             cardsBeforeShuffle.add(c);
         }
-        assertTrue(isShuffled(d0, cardsBeforeShuffle));
-    }
 
-    public static boolean isShuffled(Deck d, ArrayList<Card> cardsBeforeShuffle) {
-        if (d.getCards().size() < 2)
-            return true;
-
-        // shuffle 3 times, because theoretically, it's possible for the shuffle to result in the same order
+        // shuffle up to 3 times, because theoretically, it's possible for the shuffle to result in the same order
         // as long as one of them comes shuffled - that's a pass.
         boolean isShuffled = false;
         for (int i = 0; i < 3; i++) {
-            d.shuffle();
-            boolean thisOneIsShuffled = false;
-            for (int ci = 0; ci < cardsBeforeShuffle.size(); ci++) {
-                if (!cardsBeforeShuffle.get(ci).getName().equals(d.getCards().get(ci).getName())) {
-                    thisOneIsShuffled = true;
-                    break;
-                }
-            }
-            if (thisOneIsShuffled) {
-                isShuffled = true;
+            d0.shuffle();
+            if (isShuffled = isShuffled(d0, cardsBeforeShuffle)) {
                 break;
             }
         }
-        return isShuffled;
+        assertTrue(isShuffled);
+    }
+
+    public static boolean isShuffled(Deck d, ArrayList<Card> cardsBeforeShuffle) throws UnsupportedOperationException {
+        if (d.getCards().size() < 2)
+            throw new UnsupportedOperationException("Can't test if 1 or 0 card deck is shuffled.");
+
+        for (int ci = 0; ci < cardsBeforeShuffle.size(); ci++) {
+            if (!cardsBeforeShuffle.get(ci).getName().equals(d.getCards().get(ci).getName())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Test

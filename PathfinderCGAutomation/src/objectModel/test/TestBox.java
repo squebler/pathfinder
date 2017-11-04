@@ -62,8 +62,8 @@ public class TestBox {
     public void testShuffle() {
         Box b = new Box();
 
+        // This case of a 0 card deck is just to check that it doesn't throw an exception when shuffle is called.
         Deck d0 = new Deck();
-        ArrayList<Card> d0BeforeShuffle = new ArrayList<>();
         b.add(d0);
 
         Deck d1 = new Deck();
@@ -75,6 +75,7 @@ public class TestBox {
         }
         b.add(d1);
 
+        // This case of a 1 card deck is just to check that it doesn't throw an exception when shuffle is called.
         Deck d2 = new Deck();
         ArrayList<Card> d2BeforeShuffle = new ArrayList<>();
         Card d2c0 = new Card("d2c0");
@@ -82,10 +83,15 @@ public class TestBox {
         d2BeforeShuffle.add(d2c0);
         b.add(d2);
 
-        b.shuffle();
-
-        assertTrue("d0 is not shuffled", isShuffled(d0, d0BeforeShuffle));
-        assertTrue("d1 is not shuffled", isShuffled(d1, d1BeforeShuffle));
-        assertTrue("d2 is not shuffled", isShuffled(d2, d2BeforeShuffle));
+        // shuffle up to 3 times, because theoretically, it's possible for the shuffle to result in the same order
+        // as long as one of them comes shuffled - that's a pass.
+        boolean isShuffled = false;
+        for (int i = 0; i < 3; i++) {
+            b.shuffle();
+            if (isShuffled = isShuffled(d1, d1BeforeShuffle)) {
+                break;
+            }
+        }
+        assertTrue(isShuffled);
     }
 }
