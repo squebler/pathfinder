@@ -5,6 +5,7 @@ package objectModel;
  */
 public class Location extends Card {
 
+    private int advDeckNumber;
     private int numMonsters;
     private int numBarriers;
     private int numWeapons;
@@ -21,11 +22,16 @@ public class Location extends Card {
     // Image
     // Lore
 
-    public Location(String name, int numMonsters, int numBarriers, int numWeapons, int numSpells, int numArmors,
+    public Location() {
+        super("test-location");
+    }
+
+    public Location(String name, int advDeckNumber, int numMonsters, int numBarriers, int numWeapons, int numSpells, int numArmors,
                     int numItems, int numAllies, int numBlessings, String whileAbility, String closingChallenge,
                     String permCloseEffect, boolean isAbyssal) {
         super(name);
 
+        this.advDeckNumber = advDeckNumber;
         this.numMonsters = numMonsters;
         this.numBarriers = numBarriers;
         this.numWeapons = numWeapons;
