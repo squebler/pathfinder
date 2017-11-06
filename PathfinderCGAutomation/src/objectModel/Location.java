@@ -17,6 +17,7 @@ public class Location extends Card {
     private String whileAbility;
     private String closingChallenge;
     private String permCloseEffect;
+    // Actually, here, we probably want a list of "attributes", and abyssal is an attribute.
     private boolean isAbyssal;
     // Front side vs back side
     // Image
