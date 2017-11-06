@@ -5,7 +5,6 @@ package objectModel;
  */
 public class Location extends Card {
 
-    private int advDeckNumber;
     private int numMonsters;
     private int numBarriers;
     private int numWeapons;
@@ -17,8 +16,6 @@ public class Location extends Card {
     private String whileAbility;
     private String closingChallenge;
     private String permCloseEffect;
-    // Actually, here, we probably want a list of "attributes", and abyssal is an attribute.
-    private boolean isAbyssal;
     // Front side vs back side
     // Image
     // Lore
@@ -29,10 +26,9 @@ public class Location extends Card {
 
     public Location(String name, int advDeckNumber, int numMonsters, int numBarriers, int numWeapons, int numSpells, int numArmors,
                     int numItems, int numAllies, int numBlessings, String whileAbility, String closingChallenge,
-                    String permCloseEffect, boolean isAbyssal) {
-        super(name);
+                    String permCloseEffect) {
+        super(name, advDeckNumber);
 
-        this.advDeckNumber = advDeckNumber;
         this.numMonsters = numMonsters;
         this.numBarriers = numBarriers;
         this.numWeapons = numWeapons;
@@ -44,6 +40,5 @@ public class Location extends Card {
         this.whileAbility = whileAbility;
         this.closingChallenge = closingChallenge;
         this.permCloseEffect = permCloseEffect;
-        this.isAbyssal = isAbyssal;
     }
 }
