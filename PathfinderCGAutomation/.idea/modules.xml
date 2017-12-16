@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PathfinderCGAutomation.iml" filepath="$PROJECT_DIR$/PathfinderCGAutomation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SimpleWindowApp/SimpleWindowApp.iml" filepath="$PROJECT_DIR$/SimpleWindowApp/SimpleWindowApp.iml" />
     </modules>
   </component>
 </project>
